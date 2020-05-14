@@ -1,12 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Auction, type: :model do
+
+  let(:seller) {
+    User.new(email: "austin@mail.com", password: "qweasd123")
+  }
   subject {
     described_class.new(
         title: "Test title",
         description: "Test description",
         start_date: DateTime.now,
-        end_date: DateTime.now + 1.week
+        end_date: DateTime.now + 1.week,
+        user_id: 1
     )
   }
 
